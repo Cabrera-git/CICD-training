@@ -113,7 +113,7 @@ jobs:
           ECR_REPOSITORY: cicd/testing
           IMAGE_TAG: latest
         with:
-          context: ./python3
+          context: ./python
           tags: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
           outputs: type=docker,dest=/tmp/${{ env.IMAGE_TAG }}.tar
 
