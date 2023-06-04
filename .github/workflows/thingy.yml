@@ -110,7 +110,7 @@ jobs:
         uses: docker/build-push-action@v4
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: cicd-testing
+          ECR_REPOSITORY: cicd/testing
           IMAGE_TAG: latest
         with:
           context: ./python3
