@@ -110,7 +110,7 @@ jobs:
         uses: docker/build-push-action@v4
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: cicd/testing
+          ECR_REPOSITORY: g2c3v4e1/cicd/testing
           IMAGE_TAG: latest
         with:
           context: ./python
@@ -157,7 +157,7 @@ jobs:
       - name: Deploy image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: cicd/testing
+          ECR_REPOSITORY: g2c3v4e1/cicd/testing
           IMAGE_TAG: latest
         run: |
           docker load --input /tmp/$IMAGE_TAG.tar
