@@ -66,8 +66,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r python/requirements.txt
 
-      - name: Build package
-        run: tools build -o package.zip
+      - name: Create ZIP FILE
+        run: |
+          RUN_ENV=dev 
+          zip my-app.zip python/functions/app.py python/requirements.txt
 
   build_docker_image:
     if: ${{ github.event_name != 'pull_request' }}      
