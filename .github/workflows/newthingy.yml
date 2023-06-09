@@ -85,7 +85,7 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build Docker image
-        run: docker build -t myimage .
+        run: docker build -t myimage A01025453
 
   push_to_ecr:
     if: ${{ github.event_name != 'pull_request' }}      
