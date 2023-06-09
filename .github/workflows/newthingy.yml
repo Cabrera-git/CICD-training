@@ -53,7 +53,7 @@ jobs:
         run: |
           pip install coverage
           coverage run --source=functions -m pytest
-          coverage report --fail-under=90  # Set your desired coverage threshold here
+          coverage report --fail-under=90
         working-directory: python
 
   build_package:  
