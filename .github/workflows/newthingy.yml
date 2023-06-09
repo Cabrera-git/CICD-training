@@ -85,7 +85,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build Docker image
-        run:  docker build -t public.ecr.aws/g2c3v4e1/cicd/testing:latest python
+        run: docker build -t public.ecr.aws/g2c3v4e1/cicd/testing:latest -t public.ecr.aws/g2c3v4e1/cicd/testing:python python
+  
+      - name: Push Docker image to ECR
+        run: docker push public.ecr.aws/g2c3v4e1/cicd/testing:latest && docker push public.ecr.aws/g2c3v4e1/cicd/testing:python
 
   push_to_ecr:
     if: ${{ github.event_name != 'pull_request' }}      
