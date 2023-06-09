@@ -166,16 +166,16 @@ jobs:
         env:
           LATEST_TAG: latest
         with:
-          name: ${{ env.LATEST_TAG }}
-          path: /tmp/${{ env.LATEST_TAG }}.tar
+          name: latest
+          path: /tmp
 
       - name: Read self artifact
         uses: actions/download-artifact@v3
         env:
             SELF_TAG: A01025453
         with:
-          name: ${{ env.SELF_TAG }}
-          path: /tmp/${{ env.SELF_TAG }}.tar
+          name: A01025453
+          path: /tmp
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
