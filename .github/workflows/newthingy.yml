@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
             python -m pip install --upgrade pip
-            pip install -r A01025453/requirements.txt
+            pip install -r python/requirements.txt
   
       - name: Linting
         run: 
@@ -44,14 +44,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r A01025453/requirements.txt
+          pip install -r python/requirements.txt
 
       - name: Run unit tests
-        run: pytest A01025453/tests/test.py
+        run: pytest python/tests/test.py
 
       - name: Generate code coverage report
         run: coverage run --source=func -m pytest
-        working-directory: A01025453
+        working-directory: python
 
       - name: Show code coverage report
         run: coverage report
@@ -71,7 +71,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r A01025453/requirements.txt
+          pip install -r python/requirements.txt
 
       - name: Build package
         run: tools build -o package.zip
@@ -119,10 +119,10 @@ jobs:
       - name: Tag Docker image
         run: |
           docker tag myimage:latest public.ecr.aws/g2c3v4e1/cicd/testing:latest
-          docker tag myimage:latest public.ecr.aws/g2c3v4e1/cicd/testing:A01025453
+          docker tag myimage:latest public.ecr.aws/g2c3v4e1/cicd/testing:python
 
       - name: Push Docker image to ECR
         run: |
           docker push public.ecr.aws/g2c3v4e1/cicd/testing:latest
-          docker push public.ecr.aws/g2c3v4e1/cicd/testing:A01025453
+          docker push public.ecr.aws/g2c3v4e1/cicd/testing:python
 
