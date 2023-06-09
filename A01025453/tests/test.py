@@ -1,4 +1,4 @@
-from functions.app import AWS_LAMBDA
+from func.app import AWS_LAMBDA
 
 def test_lambda_handler():
     event = None
