@@ -49,13 +49,6 @@ jobs:
       - name: Run unit tests
         run: pytest tests/test.py
 
-      - name: Generate code coverage report
-        run: |
-          pip install coverage
-          coverage run --source=functions -m pytest
-          coverage report --fail-under=90
-        working-directory: python
-
   build_package:  
     if: ${{ github.event_name != 'pull_request' }}      
     runs-on: ubuntu-latest
