@@ -113,11 +113,12 @@ jobs:
 
       - name: Tag Docker image
         run: |
-          docker tag myimage:latest public.ecr.aws/g2c3v4e1/cicd/testing:latest
-          docker tag myimage:latest public.ecr.aws/g2c3v4e1/cicd/testing:python
+            IMAGE_ID=$(docker images -q myimage)
+            docker tag $IMAGE_ID public.ecr.aws/g2c3v4e1/cicd/testing:latest
+            docker tag $IMAGE_ID public.ecr.aws/g2c3v4e1/cicd/testing:A01025453
 
       - name: Push Docker image to ECR
         run: |
           docker push public.ecr.aws/g2c3v4e1/cicd/testing:latest
-          docker push public.ecr.aws/g2c3v4e1/cicd/testing:python
+          docker push public.ecr.aws/g2c3v4e1/cicd/testing:A01025453
 
