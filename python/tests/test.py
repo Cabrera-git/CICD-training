@@ -1,9 +1,10 @@
-import unittest
-from functions import app
-import sys
-sys.path.append('../functions')
+from functions.app import AWS_LAMBDA
 
-class FuncTest(unittest.TestCase):
-    def handler(self):
-        result = app.lambda_handler(None, None)
-        self.assertEqual(result, "response")
+def test_lambda_handler():
+    event = None
+    context = None
+    expected_result = 75
+
+    result = AWS_LAMBDA(event, context)
+
+    assert result == expected_result

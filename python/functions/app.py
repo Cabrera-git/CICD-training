@@ -1,6 +1,2 @@
-import os
-import json
-
-def lambda_handler(event, response):
-    json_region = os.environ['AWS_REGION']
-    return "response"
+def AWS_LAMBDA(event, context):
+    return 25 + 50
