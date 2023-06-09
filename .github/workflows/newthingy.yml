@@ -130,15 +130,7 @@ jobs:
             ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.SELF_TAG }}
           outputs: type=docker,dest=/tmp/${{ env.SELF_TAG }}.tar
 
-      - name: Save latest image
-        uses: actions/upload-artifact@v3
-        env:
-          LATEST_TAG: latest
-        with:
-          name: ${{ env.LATEST_TAG }}
-          path: /tmp/${{ env.LATEST_TAG }}.tar
-
-      - name: Save latest image
+      - name: Save self image
         uses: actions/upload-artifact@v3
         env:
             SELF_TAG: A01025453
@@ -157,7 +149,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Read artifact
+      - name: Read latest artifact
         uses: actions/download-artifact@v3
         env:
           LATEST_TAG: latest
@@ -165,7 +157,7 @@ jobs:
           name: ${{ env.LATEST_TAG }}
           path: /tmp
 
-      - name: Read artifact
+      - name: Read self artifact
         uses: actions/download-artifact@v3
         env:
             SELF_TAG: A01025453
@@ -186,7 +178,7 @@ jobs:
         with:
           registry-type: public
 
-      - name: Deploy image
+      - name: Deploy images
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: g2c3v4e1/cicd/testing
