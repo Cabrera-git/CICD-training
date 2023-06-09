@@ -47,7 +47,7 @@ jobs:
           pip install -r python/requirements.txt
 
       - name: Run unit tests
-        run: pytest python/tests/test.py
+        run: pytest tests/test.py
 
       - name: Generate code coverage report
         run: |
