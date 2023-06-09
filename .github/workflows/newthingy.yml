@@ -194,7 +194,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: g2c3v4e1/cicd/testing
-          IMAGE_TAG: latest
+          LATEST_TAG: latest
           SELF_TAG: A01025453
         run: |
           docker load --input /tmp/$LATEST_TAG.tar
