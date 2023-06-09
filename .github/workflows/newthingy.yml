@@ -52,9 +52,9 @@ jobs:
       - name: Generate code coverage report
         run: |
           pip install coverage
-          coverage run --source=func -m pytest
+          coverage run --source=functions -m pytest
           coverage report --fail-under=90  # Set your desired coverage threshold here
-        working-directory: A01025453
+        working-directory: python
 
   build_package:  
     if: ${{ github.event_name != 'pull_request' }}      
