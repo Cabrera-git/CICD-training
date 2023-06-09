@@ -47,7 +47,7 @@ jobs:
           pip install -r python/requirements.txt
 
       - name: Run unit tests
-        run: pytest tests/test.py
+        run: pytest python/tests/test.py
 
   build_package:  
     if: ${{ github.event_name != 'pull_request' }}      
